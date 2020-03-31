@@ -17,3 +17,28 @@
 ### 前端
 vue + element + vue-cli
 
+### 构建
+使用 pkg 将 node 构建成了 各个平台对应的可执行文件【lin，win，mac】
+
+```
+dir struct
+
+--- src // server
+  --- server
+  --- actions
+  --- router
+--- client // frontend
+--- cookie-ext // chrome extension
+  --- images
+  --- js
+  --- manifets.json
+--- dist // frontend built files
+--- config // server config
+  --- api.evn // csdn apis 
+  --- request.header.js // common header for superagent request
+  --- server.env // base config
+--- package.json
+--- .gitignore
+--- README.md
+```
+
