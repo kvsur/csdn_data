@@ -1,0 +1,27 @@
+{
+  "name": "csdn_login",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/server/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "dva-cli": "^0.10.1",
+    "express": "^4.17.1",
+    "jsdom": "^16.2.1",
+    "morgan": "^1.10.0",
+    "superagent": "^5.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "bin": "src/server/index.js",
+  "pkg": {
+    "assets": ["dist", "dist/static", "config/*"]
+  }
+}

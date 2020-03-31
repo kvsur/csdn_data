@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Cookie Sync",
+  "version": "1.0",
+  "description": "将CSDN登录后的cookie保存到自己的平台",
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon.png",
+      "38": "images/icon.png"
+    },
+    "default_title": "Cookie Sync"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "permissions": [
+    "cookies",
+    "notifications",
+    "storage",
+    "http://*.csdn.net/*",
+    "https://*.csdn.net/*",
+    "http://localhost:8080/*",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://passport.csdn.net/login?code=public",
+        "https://passport.csdn.net/*",
+        "https://www.csdn.net/*",
+        "https://i.csdn.net/"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "run_at": "document_end",
+      "exclude_globs": [],
+      "include_globs": [
+        "*"
+      ]
+    }
+  ]
+}
