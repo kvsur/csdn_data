@@ -8,7 +8,7 @@
 
 ----
 
-> 工具的登录并未自身实现，使用通过使用chrome 扩展监听的方式获取session
+> 工具的登录并未自身实现，是通过使用chrome 扩展监听的方式获取session
 > 扩展会监听.csdn.net域对应cookie信息的变化从而拿到session【cookie】，之后就方便了
 
 ### 后端 
