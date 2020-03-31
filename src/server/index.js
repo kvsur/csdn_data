@@ -20,6 +20,7 @@ const router = require('./router')
 
 app.use('/api', router)
 // app.get('/', (req, res) => res.send('Hello World!!!'))
+// 这里主要是为了处理pkg 打包带来的问题
 app.get('/static/*', async (req, res, next) => {
   let ext = req.path.split('.');
   console.log(ext)
