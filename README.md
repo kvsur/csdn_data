@@ -17,7 +17,7 @@
 vue + element + vue-cli
 
 ### 构建
-使用 pkg 将 node 构建成了 各个平台对应的可执行文件【lin，win，mac】
+使用 pkg（global install） 将 node 构建成了 各个平台对应的可执行文件【lin，win，mac】
 
 dir struct
 
