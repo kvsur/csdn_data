@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/server/index.js"
+    "start": "nodemon src/server/index.js",
+    "build-win": "pkg -t node12-win-x64",
+    "build-mac": "pkg -t node12-macos-x64"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
