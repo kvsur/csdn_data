@@ -81,6 +81,10 @@ export default {
 }
 </script>
 <style scoped>
+.app-container {
+  margin: 0 auto;
+  width: 90%;
+}
 .follows-container {
   display: flex;
   flex-wrap: wrap;

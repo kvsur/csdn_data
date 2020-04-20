@@ -111,7 +111,7 @@ const global = {
       try {
         if(!ids || !ids.length) return Promise.resolve();
         const { code } = await batchFollow({ids: JSON.stringify(ids)});
-        if (code == 200) {
+        if (code === 200) {
           const usernames = state.usernames;
           commit('UPDATE_GLOBAL_USERNAMES', usernames.concat(ids).join('#_#').split('#_#'))
           Message({
@@ -133,14 +133,17 @@ const global = {
         return Promise.resolve();
       }
     },
-    async BatchUnFollow({commit, state}) {
+    async BatchUnFollow({commit, state}, { ids }) {
       try {
 
         const usernames = state.usernames;
-        const ids = usernames.slice(0, 20);
+        // const ids = usernames.slice(0, 20);
         const { code } = await batchUnFollow({ids: JSON.stringify(ids)});
-        if (code == 200) {
-          usernames.splice(0, 20);
+        if (code === 200) {
+          ids.forEach(id => {
+            const index = usernames.indexOf(id);
+            usernames.splice(index, 1);
+          })
           const length = usernames.length;
           commit('UPDATE_GLOBAL_USERNAMES', length ? usernames.join('#_#').split('#_#') :[])
           Message({

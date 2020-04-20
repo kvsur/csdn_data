@@ -16,6 +16,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+
 const router = require('./router')
 
 app.use('/api', router)
@@ -23,7 +25,6 @@ app.use('/api', router)
 // 这里主要是为了处理pkg 打包带来的问题
 app.get('/static/*', async (req, res, next) => {
   let ext = req.path.split('.');
-  console.log(ext)
   const length = ext.length;
   ext = ext[length - 1];
   ext = {js: 'application/javascript', css: 'text/css', gif: 'image/gif', woff: 'font/woff'}[ext]
@@ -41,11 +42,11 @@ app.use('/*', async (req, res) => {
   res.end()
 })
 
-const PORT = process.env.PORT
+const PORT = 1024
 
 app.listen(PORT, _ => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`.yellow.bold)
-  exec('ls', (err, std, str) => {
-    console.log(std.green)
-  })
+  // exec('ls', (err, std, str) => {
+  //   console.log(std.green)
+  // })
 })
