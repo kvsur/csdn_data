@@ -42,7 +42,7 @@ app.use('/*', async (req, res) => {
   res.end()
 })
 
-const PORT = 1024
+const PORT = process.env.PORT
 
 app.listen(PORT, _ => {
   console.log(`Server running in ${process.env.NODE_ENV} mode on ${PORT}`.yellow.bold)
